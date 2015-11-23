@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+</head>
+<body>
+    <h3 align="center">Students Record</h3>
+    <a href='/add'><h4 align="center">Add New</h4></a>
+    <br>
+    <div class="students">
+        <table style="width: 100%">
+            <tr>
+                <th>Name</th>
+                <th>Registration</th>
+                <th>Department</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td align="center"><a href="/{{ student.student_id }}">{{ student.name }}</a></td>
+                <td align="center"><a href="/{{ student.key.urlsafe() }}">{{ student.registration }}</a></td>
+                <td align="center">{{ student.department }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
